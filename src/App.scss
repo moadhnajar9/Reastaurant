@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+//md:p-16 lg:py-2 lg:px-24 3xl:px-64
+//font-size: clamp(3rem, 3.5vw, 5.6rem);
+
+@layer components {
+  #main {
+    @apply bg-costume-black;
+    background-image: url("./assets/pattern-bg.svg");
+  }
+
+  h1 {
+    @apply text-2xl xs:text-5xl md:text-6xl xl:text-[90px];
+  }
+  h2 {
+    font-size: clamp(1.25rem, 2.75vw, 5rem);
+  }
+  h3 {
+    font-size: clamp(1rem, 2.5vw, 4rem);
+  }
+
+  img {
+    @apply max-w-full;
+  }
+  .grid__section {
+    display: grid;
+    grid-template-rows: 1rem 16rem 1rem 16rem 1rem;
+    grid-template-columns: 1.25rem 1fr 1.25rem;
+    @media (min-width: 640px) {
+      grid-template-rows: 1rem 1fr 1rem;
+      grid-template-columns:
+        minmax(2rem, 1fr) minmax(0rem, 40rem) minmax(1rem, 5rem)
+        minmax(0rem, 40rem) minmax(2rem, 1fr);
+      grid-template-rows: minmax(0, 1rem) minmax(37rem, 1fr) minmax(0, rem);
+    }
+  }
+  .grid__section--info {
+    grid-area: 2/2/2/2;
+    @apply flex flex-col justify-between;
+    @media (min-width: 640px) {
+      @apply flex flex-col justify-center sm:space-y-7;
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    p {
+      @apply max-w-md;
+    }
+  }
+  .grid__section--img {
+    grid-area: 4/2/4/2;
+    @media (min-width: 640px) {
+      grid-column: 4;
+      grid-row: 2;
+    }
+
+    img {
+      @apply object-cover  h-full w-full;
+    }
+  }
+  .section__padding {
+    @apply py-4 px-5  md:px-16 lg:px-24 3xl:px-64;
+  }
+
+  .p__opensans {
+    @apply font-alt font-normal text-[14px]  sm:text-base md:leading-7;
+  }
+
+  .custom__button {
+    @apply text-costume-black font-base font-bold tracking-wider leading-7 text-xs xs:text-base py-2 px-6 rounded-sm outline-none cursor-pointer bg-golden;
+  }
+}
+
+/* .app__wrapper {
+    @apply flex flex-col  sm:flex-row justify-center items-center space-x-16;
+  }
+
+  .app__wrapper_info {
+    @apply flex-1  max-w-2xl;
+  }
+
+  .app__wrapper_img {
+    @apply flex flex-1 justify-center max-w-2xl items-center object-cover w-full h-full;
+  } */
